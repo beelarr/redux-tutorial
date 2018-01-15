@@ -5,6 +5,8 @@ const initialState = {
   counter: 0
 };
 
+
+
 // Reducer
 
 const rootReducer = (state = initialState, action) =>  {
@@ -23,19 +25,27 @@ const rootReducer = (state = initialState, action) =>  {
     return state
 };
 
+
+
 // Store
 const store = createStore(rootReducer);
 console.log(store.getState());
 
 
 
+// Subscription
+
+store.subscribe(() => {
+    console.log('subscription', store.getState()); // subscription is trigger by action
+});
+
+
 
 // Dispatch Action
-
 
 store.dispatch({type: 'INC_COUNTER'}); // type is at my discretion but typically all caps
 store.dispatch({type: 'ADD_COUNTER', value: 10});
 console.log(store.getState());
 
 
-// Subscription
+
