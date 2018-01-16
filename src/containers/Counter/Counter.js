@@ -4,6 +4,8 @@ import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
 
 import { connect } from 'react-redux';
+import * as actionTypes from '../../store/actions';
+
 
 class Counter extends Component {
 
@@ -18,8 +20,14 @@ class Counter extends Component {
                 <hr/>
                 <button onClick={this.props.onStoreResult}>Store Result</button>
                 <ul>
-                    {this.props.storedResults.map(r => (
-                        <li key={r.id} onClick={() => this.props.onDeleteResult(r.id)}>{r.value}</li>))}
+                    {this.props.storedResults.map(r =>
+                        <li
+                            style={{listStyle: 'none'}}
+                            key={r.id}
+                            onClick={() => this.props.onDeleteResult(r.id)}>
+                                {r.value}
+                        </li>
+                    )}
                 </ul>
             </div>
         );
@@ -37,24 +45,24 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {  // calls dispatch on the store behind the scenes
     return {
         onIncrementCounter: () => dispatch({
-            type: 'INCREMENT'
+            type: actionTypes.INCREMENT
         }),
         onDecrementCounter: () => dispatch({
-            type: 'DECREMENT'
+            type: actionTypes.DECREMENT
         }),
         onAdd: () => dispatch({
-            type: 'ADD',
+            type: actionTypes.ADD,
             payload: { value: 10}
         }),
         onSubtract: () => dispatch({
-            type: 'SUBTRACT',
+            type: actionTypes.SUBTRACT,
             payload: {value: 15}
         }),
         onStoreResult: () => dispatch({
-            type: 'STORE_RESULT',
+            type: actionTypes.STORE_RESULT,
         }),
         onDeleteResult: (id) => dispatch({
-            type: 'DELETE_RESULT',
+            type: actionTypes.DELETE_RESULT,
             payload: {resultElementId: id }
         })
     }
