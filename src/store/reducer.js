@@ -32,9 +32,10 @@ const reducer = ( state = initialState, action) => {
                 results: state.results.concat({id: new Date(), value: state.counter})
             }
         case 'DELETE_RESULT':
+            const newArray = state.results.filter(r => r.id !== action.payload.resultElementId);
             return {
                 ...state,
-                results: state.results = []
+                results: newArray,
             }
     }
     return state;  // if no cases are present return current state so app doesn't break
