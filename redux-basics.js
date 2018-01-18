@@ -12,7 +12,7 @@ const initialState = {
 const rootReducer = (state = initialState, action) =>  {
     if (action.type === 'INC_COUNTER') {
         return {
-            ...state,
+            ...state, // copy of state and overwrite it with counter
             counter: state.counter + 1
         }
     }
