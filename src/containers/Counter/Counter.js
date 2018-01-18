@@ -70,6 +70,6 @@ const mapDispatchToProps = dispatch => {  // calls dispatch on the store behind 
 
 
 
-
+    // connect is our subscription
     //  connect is a function that returns a hoc function that takes our component as an argument
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
