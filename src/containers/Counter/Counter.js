@@ -41,7 +41,7 @@ const mapStateToProps = state => {
     };
 };
 
-
+// takes our methonds below and converts them to props
 const mapDispatchToProps = dispatch => {  // calls dispatch on the store behind the scenes
     return {
         onIncrementCounter: () => dispatch({
