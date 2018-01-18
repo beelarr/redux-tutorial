@@ -56,14 +56,14 @@ const mapDispatchToProps = dispatch => {  // calls dispatch on the store behind 
         }),
         onSubtract: () => dispatch({
             type: actionTypes.SUBTRACT,
-            payload: {value: 15}
+            payload: { value: 15 }
         }),
         onStoreResult: () => dispatch({
             type: actionTypes.STORE_RESULT,
         }),
         onDeleteResult: (id) => dispatch({
             type: actionTypes.DELETE_RESULT,
-            payload: {resultElementId: id }
+            payload: { resultElementId: id }
         })
     }
 };
