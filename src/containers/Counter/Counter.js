@@ -36,12 +36,13 @@ class Counter extends Component {
 
 const mapStateToProps = state => {
     return {
-        ctr: state.ctr.counter,
+        ctr: state.ctr.counter, // connects counter state with ctr that I can pass down as props here
         storedResults: state.res.results
+
     };
 };
 
-
+// takes our methonds below and converts them to props
 const mapDispatchToProps = dispatch => {  // calls dispatch on the store behind the scenes
     return {
         onIncrementCounter: () => dispatch({
@@ -56,7 +57,7 @@ const mapDispatchToProps = dispatch => {  // calls dispatch on the store behind 
         }),
         onSubtract: () => dispatch({
             type: actionTypes.SUBTRACT,
-            payload: {value: 15}
+            payload: { value: 15 }
         }),
         onStoreResult: (result) => dispatch({
             type: actionTypes.STORE_RESULT,
@@ -64,13 +65,13 @@ const mapDispatchToProps = dispatch => {  // calls dispatch on the store behind 
         }),
         onDeleteResult: (id) => dispatch({
             type: actionTypes.DELETE_RESULT,
-            payload: {resultElementId: id }
+            payload: { resultElementId: id }
         })
     }
 };
 
 
 
-
+    // connect is our subscription
     //  connect is a function that returns a hoc function that takes our component as an argument
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);

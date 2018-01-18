@@ -7,8 +7,8 @@ const initialState = {
 
 const counterReducer = ( state = initialState, action) => {
 
-    switch (action.type) {
-        case actionTypes.INCREMENT:
+    switch (action.type) {  //checking to see if action.type is equal our cases
+        case actionTypes.INCREMENT:  // pulled from our action types and converted into a string
             return {
                 ...state,
                 counter: state.counter + 1
